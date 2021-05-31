@@ -1,0 +1,5 @@
+how to install jenkins
+
+apt-get update
+apt install default-jdk
+java --version
