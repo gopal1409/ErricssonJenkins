@@ -15,3 +15,11 @@ How to install maven
  20  apt install maven
  mvn --version
 
+
+Execute the jar file
+
+echo "**********************"
+echo "Deploying Jar File"
+echo "***********************"
+
+java -jar /var/lib/jenkins/workspace/maven-project/target/my-app-1.0-SNAPSHOT.jar
