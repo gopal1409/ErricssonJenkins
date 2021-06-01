@@ -17,11 +17,11 @@ job ('maven_dsl') {
   }    
     steps {
       maven {
-        mavenInstallation('maven-jenkins')
+        mavenInstallation('jenkins-maven')
         goals('-B -DskipTests clean package')
               }
       maven {   
-        mavenInstallation('maven-jenkins')
+        mavenInstallation('jenkins-maven')
         goals('test')
               }
               
@@ -30,5 +30,10 @@ job ('maven_dsl') {
 			java -jar /var/lib/jenkins/workspace/maven/target/my-app-1.0-SNAPSHOT.jar
 			''')
     
+  }
+  publishers {
+    archiveArtifacts('targets/*.jar')
+    archiveJunit('target/sunfire-reports/*.xml')
+    mailer('gopal1409@gmail.com',true,true)
   }
 }
