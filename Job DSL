@@ -7,3 +7,28 @@ job ('job_dsl_created'){
     
   }
 }
+
+
+--------------------------------
+job ('maven_dsl') {
+  description('mavel dsl project')
+  scm {
+    git('https://github.com/jenkins-docs/simple-java-maven-app','master',{node -> node / 'extensions' << ''})
+  }    
+    steps {
+      maven {
+        mavenInstallation('maven-jenkins')
+        goals('-B -DskipTests clean package')
+              }
+      maven {   
+        mavenInstallation('maven-jenkins')
+        goals('test')
+              }
+              
+      shell('''
+          echo ***********************Runnign the Jar file***************
+			java -jar /var/lib/jenkins/workspace/maven/target/my-app-1.0-SNAPSHOT.jar
+			''')
+    
+  }
+}
