@@ -10,3 +10,24 @@
    55  chmod +x /usr/local/bin/docker-compose
    56  docker-compose
    57  history
+   
+   How to install gitlab
+    59  mkdir gitlab
+   60  cd gitlab/
+   61  vi docker-compose.yml
+web:
+  image: 'gitlab/gitlab-ee:latest'
+  restart: always
+  hostname: 'gitlab.example.com'
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'http://gitlab.example.com:8929'
+      gitlab_rails['gitlab_shell_ssh_port'] = 2224
+  ports:
+    - '8929:8929'
+    - '2224:22'
+  volumes:
+    - '$GITLAB_HOME/config:/etc/gitlab'
+    - '$GITLAB_HOME/logs:/var/log/gitlab'
+    - '$GITLAB_HOME/data:/var/opt/gitlab'
+    
