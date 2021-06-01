@@ -1,0 +1,15 @@
+124  mkdir project
+  125  cd project/
+  126  touch myapp.py
+  127  touch DS_Store
+  128  touch id_ras.pub
+  129  git status
+  130  git init
+  131  git status
+  132  git add myapp.py
+  133  git status
+  134  git commit -m "my first commit"
+  135  git logs
+  136  git log
+  137  git remote add origin http://gitlab.example.com:8929/jenkins/sampleproject.git
+  138  git push -u origin master
