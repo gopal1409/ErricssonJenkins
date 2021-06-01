@@ -1,2 +1,9 @@
 job ('job_dsl_created'){
+  description('this is my maven job')
+  parameters {
+    stringParam('planet', defaultValue = 'world', description = 'this is world')
+    booleanParam('FLAG',true)
+    choiceParam('OPTION',['Option 1 default()','option2'])
+    
+  }
 }
