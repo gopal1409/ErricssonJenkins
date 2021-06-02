@@ -10,7 +10,9 @@ pipeline {
                   echo "By the way i can do more stuff out here"
                   ls -lah
                   '''
-                sh 'I am not going to work :c'
+                }
+                timeout(time: 3, unit: 'SECONDS') {
+                 sh 'sleep 5'
                 }
                 
             }
