@@ -10,6 +10,7 @@ pipeline {
                   echo "By the way i can do more stuff out here"
                   ls -lah
                   '''
+                sh 'I am not going to work :c'
                 }
                 
             }
