@@ -2,7 +2,7 @@ pipeline {
     
   agent {
    docker {
-      image 'rosti/runtime'
+      image 'rikorose/gcc-make'
       args '-v ${PWD}:/tmp/mosaiq-project -w :/tmp/mosaiq-project:ro'
       reuseNode true
       }
