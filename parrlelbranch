@@ -2,7 +2,7 @@ pipeline {
     
   agent {
    docker {
-      image 'runtime-tooling'
+      image 'rosti/runtime'
       args '-v ${PWD}:/tmp/mosaiq-project -w :/tmp/mosaiq-project:ro'
       reuseNode true
       }
